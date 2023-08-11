@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package rgaa;
+
+enum VideoType {
+    kH264 = 0;
+    kH265 = 1;
+}
+
+// kConfigSync
+message VideoConfigSync {
+    VideoType type = 1;
+    int32 width = 2;
+    int32 height = 3;
+}
+
+message AudioConfigSync {
+    int32 samples = 1;
+    int32 channels = 2;
+}
+
+// kVideoFrame
+message VideoFrameSync {
+    VideoType type = 1;
+    bytes data = 2;
+    uint64 frame_index = 3;
+    bool key = 4;
+    int32 width = 5;
+    int32 height = 6;
+}
+
+// kAudioFrame
+message AudioFrameSync {
+    bytes data = 1;
+    int32 frame_size = 2;
+}
+
+// kClientReport
+message ClientInfoReport {
+
+}
+
+// kServerInfoSync
+message ServerInfoSync {
+
+}
+
+enum MouseKey {
+    kLeft = 0;
+    kMiddle = 1;
+    kRight = 2;
+    kX = 3;
+}
+
+// kMouseInfo
+message MouseInfoReport {
+    MouseKey key = 1;
+    bool pressed = 2;
+    bool released = 3;
+    float mouse_x = 4; // 0.0 - 1.0
+    float mouse_y = 5;
+    float mouse_dx = 6; //
+    float mouse_dy = 7;
+    int32 middle_scroll = 8;
+}
+
+// kKeyboardInfo
+message KeyboardInfoReport {
+    int32 vk = 1;
+    bool pressed = 2;
+    int32 scancode = 3;
+    bool caps_lock = 4;
+    bool num_lock = 5;
+}
+
+// kMessageACK
+message MessageACK {
+    MessageType type = 1;
+    // from Message::send_time
+    uint64 send_time = 2;
+    uint64 frame_index = 3;
+}
+
+// messages
+
+enum MessageType {
+    kVideoConfigSync = 0;
+    kAudioConfigSync = 1;
+    kVideoFrame = 2;
+    kAudioFrame = 3;
+    kClientInfoReport = 4;
+    kServerInfoSync = 5;
+    kCursorInfo = 6;
+    kMouseInfo = 7;
+    kKeyboardInfo = 8;
+    kMessageACK = 9;
+}
+
+message Message {
+    MessageType type = 1;
+    uint64 send_time = 2;
+    VideoConfigSync video_config_sync = 3;
+    VideoFrameSync video_frame = 4;
+    AudioConfigSync audio_config_sync = 5;
+    AudioFrameSync audio_frame = 6;
+    ClientInfoReport client_info_report = 7;
+    ServerInfoSync server_info_sync = 8;
+    MouseInfoReport mouse_info = 9;
+    KeyboardInfoReport keyboard_info = 10;
+    MessageACK message_ack = 11;
+}
