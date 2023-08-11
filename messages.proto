@@ -96,7 +96,7 @@ enum MessageType {
     kMessageACK = 9;
 }
 
-message Message {
+message NetMessage {
     MessageType type = 1;
     uint64 send_time = 2;
     VideoConfigSync video_config_sync = 3;
