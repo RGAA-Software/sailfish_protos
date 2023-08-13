@@ -71,6 +71,8 @@ message KeyboardInfoReport {
     int32 scancode = 3;
     bool caps_lock = 4;
     bool num_lock = 5;
+    bool shift = 6;
+    bool alt = 7;
 }
 
 // kMessageACK
