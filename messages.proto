@@ -106,6 +106,8 @@ enum MessageType {
     kMouseInfo = 7;
     kKeyboardInfo = 8;
     kMessageACK = 9;
+    kStartRecording = 10;
+    kStopRecording = 11;
 }
 
 message NetMessage {
@@ -120,4 +122,6 @@ message NetMessage {
     MouseInfoReport mouse_info = 9;
     KeyboardInfoReport keyboard_info = 10;
     MessageACK message_ack = 11;
+    StartRecordingReport start_recording = 12;
+    StopRecordingReport stop_recording = 13;
 }
