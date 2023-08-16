@@ -85,6 +85,14 @@ message MessageACK {
     uint64 frame_index = 3;
 }
 
+message StartRecordingReport {
+    bool audio = 1;
+}
+
+message StopRecordingReport {
+
+}
+
 // messages
 
 enum MessageType {
