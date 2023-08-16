@@ -93,6 +93,10 @@ message StopRecordingReport {
 
 }
 
+message HeartBeat {
+    uint64 index = 1;
+}
+
 // messages
 
 enum MessageType {
@@ -108,6 +112,7 @@ enum MessageType {
     kMessageACK = 9;
     kStartRecording = 10;
     kStopRecording = 11;
+    kHeartBeat = 12;
 }
 
 message NetMessage {
@@ -124,4 +129,5 @@ message NetMessage {
     MessageACK message_ack = 11;
     StartRecordingReport start_recording = 12;
     StopRecordingReport stop_recording = 13;
+    HeartBeat heart_beat = 14;
 }
