@@ -98,6 +98,10 @@ message HeartBeat {
     uint64 index = 1;
 }
 
+message ConfigSync {
+    int32 screen_size = 1;
+}
+
 // messages
 
 enum MessageType {
@@ -114,6 +118,7 @@ enum MessageType {
     kStartRecording = 10;
     kStopRecording = 11;
     kHeartBeat = 12;
+    kConfig = 13;
 }
 
 message NetMessage {
@@ -131,4 +136,5 @@ message NetMessage {
     StartRecordingReport start_recording = 12;
     StopRecordingReport stop_recording = 13;
     HeartBeat heart_beat = 14;
+    ConfigSync config = 15;
 }
