@@ -48,6 +48,42 @@ message ServerInfoSync {
 
 }
 
+//https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-loadcursora
+enum CursorType  {
+    kIDC_APPSTARTING = 0;
+    kIDC_ARROW = 1;
+    kIDC_CROSS = 2;
+    kIDC_HAND = 3;
+    kIDC_HELP = 4;
+    kIDC_IBEAM = 5;
+    kIDC_ICON = 6;
+    kIDC_NO = 7;
+    kIDC_SIZE = 8;
+    kIDC_SIZEALL = 9;
+    kIDC_SIZENESW = 10;
+    kIDC_SIZENS = 11;
+    kIDC_SIZENWSE = 12;
+    kIDC_SIZEWE = 13;
+    kIDC_UPARROW = 14;
+    kIDC_WAIT = 15;
+}
+
+// kCursorInfo
+message CursorInfo {
+    int32 width = 1;
+    int32 height = 2;
+    bytes data = 3;
+    int32 x = 4; // left
+    int32 y = 5; // top
+    int32 x_in_self_monitor = 6;
+    int32 y_in_self_monitor = 7;
+    int32 screen_width = 8;
+    int32 screen_height = 9;
+    float xf = 10;
+    float yf = 11;
+    CursorType type = 12;
+}
+
 enum MouseKey {
     kLeft = 0;
     kMiddle = 1;
@@ -143,4 +179,5 @@ message NetMessage {
     HeartBeat heart_beat = 14;
     ConfigSync config = 15;
     Clipboard clipboard = 16;
+    CursorInfo cursor_info = 17;
 }
