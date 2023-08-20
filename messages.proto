@@ -102,6 +102,10 @@ message ConfigSync {
     int32 screen_size = 1;
 }
 
+message Clipboard {
+    string msg = 1;
+}
+
 // messages
 
 enum MessageType {
@@ -119,6 +123,7 @@ enum MessageType {
     kStopRecording = 11;
     kHeartBeat = 12;
     kConfig = 13;
+    kClipboard = 14;
 }
 
 message NetMessage {
@@ -137,4 +142,5 @@ message NetMessage {
     StopRecordingReport stop_recording = 13;
     HeartBeat heart_beat = 14;
     ConfigSync config = 15;
+    Clipboard clipboard = 16;
 }
