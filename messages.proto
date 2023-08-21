@@ -75,13 +75,9 @@ message CursorInfo {
     bytes data = 3;
     int32 x = 4; // left
     int32 y = 5; // top
-    int32 x_in_self_monitor = 6;
-    int32 y_in_self_monitor = 7;
-    int32 screen_width = 8;
-    int32 screen_height = 9;
-    float xf = 10;
-    float yf = 11;
-    CursorType type = 12;
+    int32 hotspot_x = 6; // left
+    int32 hotspot_y = 7; // top
+    CursorType type = 8;
 }
 
 enum MouseKey {
