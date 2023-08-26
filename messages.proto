@@ -29,6 +29,7 @@ message VideoFrameSync {
     int32 height = 6;
     int32 dup_idx = 7;
     int32 encode_time = 8;
+    int32 previous_network_time = 9;
 }
 
 // kAudioFrame
