@@ -40,9 +40,18 @@ message AudioFrameSync {
     int32 channels = 4;
 }
 
-// kClientReport
-message ClientInfoReport {
+enum ClientCommandType {
+    kStartDebug = 0;
+    kStopDebug = 1;
+    kEnableClipboard = 2;
+    kDisableClipboard = 3;
+    kEnableAudio = 4;
+    kDisableAudio = 5;
+}
 
+// kClientReport
+message ClientCommandReport {
+    ClientCommandType type = 1;
 }
 
 // kServerInfoSync
@@ -167,7 +176,7 @@ message NetMessage {
     VideoFrameSync video_frame = 4;
     AudioConfigSync audio_config_sync = 5;
     AudioFrameSync audio_frame = 6;
-    ClientInfoReport client_info_report = 7;
+    ClientCommandReport client_cmd_report = 7;
     ServerInfoSync server_info_sync = 8;
     MouseInfoReport mouse_info = 9;
     KeyboardInfoReport keyboard_info = 10;
