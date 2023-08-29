@@ -156,7 +156,7 @@ enum MessageType {
     kAudioConfigSync = 1;
     kVideoFrame = 2;
     kAudioFrame = 3;
-    kClientInfoReport = 4;
+    kClientCommandReport = 4;
     kServerInfoSync = 5;
     kCursorInfo = 6;
     kMouseInfo = 7;
