@@ -38,6 +38,7 @@ message AudioFrameSync {
     int32 frame_size = 2;
     int32 samples = 3;
     int32 channels = 4;
+    int32 bits = 5;
 }
 
 enum ClientCommandType {
