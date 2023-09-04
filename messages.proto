@@ -132,6 +132,8 @@ message MessageACK {
 
 message StartRecordingReport {
     bool audio = 1;
+    int32 bitrate = 2;
+    int32 approximate_fps = 3;
 }
 
 message StopRecordingReport {
@@ -148,11 +150,6 @@ message ConfigSync {
 
 message Clipboard {
     string msg = 1;
-}
-
-message ConfigReport {
-    int32 bitrate = 1;
-    int32 approximate_fps = 2;
 }
 
 // messages
@@ -193,5 +190,4 @@ message NetMessage {
     ConfigSync config = 15;
     Clipboard clipboard = 16;
     CursorInfo cursor_info = 17;
-    ConfigReport config_report = 18;
 }
