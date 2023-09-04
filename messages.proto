@@ -150,6 +150,11 @@ message Clipboard {
     string msg = 1;
 }
 
+message ConfigReport {
+    int32 bitrate = 1;
+    int32 approximate_fps = 2;
+}
+
 // messages
 
 enum MessageType {
@@ -188,4 +193,5 @@ message NetMessage {
     ConfigSync config = 15;
     Clipboard clipboard = 16;
     CursorInfo cursor_info = 17;
+    ConfigReport config_report = 18;
 }
