@@ -90,6 +90,8 @@ message CursorInfo {
     int32 hotspot_x = 6; // left
     int32 hotspot_y = 7; // top
     CursorType type = 8;
+    int32 tex_left = 9;
+    int32 tex_right = 10;
 }
 
 enum MouseKey {
