@@ -92,6 +92,7 @@ message CursorInfo {
     CursorType type = 8;
     int32 tex_left = 9;
     int32 tex_right = 10;
+    int32 dup_idx = 11;
 }
 
 enum MouseKey {
